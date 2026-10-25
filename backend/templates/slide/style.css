@@ -1,0 +1,237 @@
+/* ==========================================================================
+   Legacy Intercessor - videotron slide stylesheet
+   Canvas: 1920 x 1080 (16:9). Body text >= 36px, title >= 72px.
+   Brand tokens: black #000000, white #FFFFFF, orange #FF5500, gold #E5AD38.
+   ========================================================================== */
+
+@font-face {
+  font-family: "Jost";
+  src: local("Jost"), local("Futura"), local("Futura PT"), local("Century Gothic");
+  font-weight: 700;
+}
+
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --orange: #ff5500;
+  --gold: #e5ad38;
+  --safe: 120px;
+  --display: "Jost", "Futura", "Century Gothic", "Trebuchet MS", sans-serif;
+  --body: "Inter", "Plus Jakarta Sans", "Segoe UI", Arial, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+}
+
+body.slide {
+  font-family: var(--body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------------------------------------------------------------- PRAYER
+   Black background, white body text, gold title. */
+.slide--prayer { background: var(--black); color: var(--white); }
+
+/* ---------------------------------------------------------------- PRAISE
+   White background, black body text, gold title. */
+.slide--praise { background: var(--white); color: var(--black); }
+
+.slide--prayer .brand__name,
+.slide--prayer .title,
+.slide--prayer .item__name,
+.slide--praise .brand__name,
+.slide--praise .title,
+.slide--praise .item__name { color: var(--gold); }
+
+.slide--prayer .rule,
+.slide--praise .rule { background: var(--gold); }
+
+/* ---------------------------------------------------------------- FRAME */
+.frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: var(--safe);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header holds only the brand mark. The summary subtitle lives under the
+   title so it never competes with the logo for horizontal space. */
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 44px;
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  font-family: var(--display);
+}
+
+.brand__dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--orange);
+  display: inline-block;
+  transform: translateY(-3px);
+}
+
+.brand__name {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 5px;
+}
+
+.brand__sub {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 7px;
+  opacity: 0.5;
+}
+
+.head__note {
+  font-size: 22px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.55;
+  max-width: 900px;
+  text-align: right;
+  line-height: 1.35;
+}
+
+/* ---------------------------------------------------------------- TITLE */
+.title {
+  font-family: var(--display);
+  font-size: 84px;
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+}
+
+/* The AI summary subtitle sits below the title in a calm, readable size. */
+.subtitle {
+  font-size: 30px;
+  line-height: 1.4;
+  font-weight: 400;
+  opacity: 0.72;
+  margin-top: 18px;
+  max-width: 1560px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.rule {
+  width: 200px;
+  height: 7px;
+  margin: 26px 0 38px;
+}
+
+/* ---------------------------------------------------------------- ITEMS */
+.items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1;
+  overflow: hidden;
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 26px 32px;
+  border-left: 9px solid transparent;
+}
+
+.slide--prayer .item { background: rgba(255, 255, 255, 0.06); }
+.slide--praise .item { background: rgba(0, 0, 0, 0.05); }
+
+.item--urgent { border-left-color: var(--orange); }
+
+.item__body { flex: 1; min-width: 0; }
+
+.item__title {
+  font-family: var(--display);
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.16;
+  margin-bottom: 12px;
+}
+
+/* Body text stays at or above the 36px videotron minimum. */
+.item__text {
+  font-size: 36px;
+  line-height: 1.34;
+  font-weight: 400;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+/* Four items on one slide is the densest case: keep 36px body text and
+   tighten only the line clamp and padding. */
+.items--4 .item__title { font-size: 38px; margin-bottom: 8px; }
+.items--4 .item__text { font-size: 36px; -webkit-line-clamp: 2; }
+.items--4 .item { padding: 20px 28px; }
+.items--4 .items { gap: 18px; }
+
+.items--2 .item__text { -webkit-line-clamp: 4; }
+
+.item__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  flex-shrink: 0;
+  padding-top: 4px;
+}
+
+.item__name {
+  font-family: var(--display);
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.badge {
+  background: var(--orange);
+  color: var(--black);
+  font-family: var(--display);
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  padding: 7px 15px;
+  white-space: nowrap;
+}
+
+/* ---------------------------------------------------------------- FOOTER */
+.foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 26px;
+  font-size: 23px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+.foot__right { font-variant-numeric: tabular-nums; }

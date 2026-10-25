@@ -1,0 +1,205 @@
+/* ==========================================================================
+   Legacy Intercessor - app styles
+   Brand tokens live in quasar.variables.scss. No hex codes here.
+   ========================================================================== */
+
+@import "./quasar.variables.scss";
+
+:root {
+  --li-safe-top: env(safe-area-inset-top, 0px);
+  --li-safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+html,
+body,
+#q-app {
+  min-height: 100%;
+  background: $brand-white;
+}
+
+body {
+  font-family: $typography-font-family;
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: none;
+}
+
+// ---------------------------------------------------------------- TYPOGRAPHY
+.li-display {
+  font-family: $typography-font-family-display;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+}
+
+.li-eyebrow {
+  font-family: $typography-font-family-display;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+
+.li-muted {
+  opacity: 0.62;
+}
+
+.li-tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+// ---------------------------------------------------------------- LAYOUT
+// Safe-area padding so the app clears the notch and home indicator on phones.
+.li-page {
+  padding: 16px;
+  padding-bottom: calc(96px + var(--li-safe-bottom));
+}
+
+@media (min-width: 1024px) {
+  .li-page {
+    padding: 28px 32px;
+    padding-bottom: 32px;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+}
+
+.li-stack > * + * {
+  margin-top: 12px;
+}
+
+.li-stack-lg > * + * {
+  margin-top: 20px;
+}
+
+// ---------------------------------------------------------------- CARDS
+.li-card {
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: $brand-white;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.li-card--urgent {
+  border-left: 4px solid $brand-orange;
+}
+
+.li-card--prayer {
+  border-left: 4px solid $identity-gold;
+}
+
+.li-card--praise {
+  border-left: 4px solid $identity-gold;
+}
+
+.li-card--tap:active {
+  border-color: rgba(0, 0, 0, 0.22);
+}
+
+// ---------------------------------------------------------------- BADGES
+.li-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: $typography-font-family-display;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+// Black text on orange: 6.5:1 contrast (PRD 11.2 accessibility rule).
+.li-badge--urgent {
+  background: $brand-orange;
+  color: $brand-black;
+}
+
+.li-badge--gold {
+  background: rgba(229, 173, 56, 0.16);
+  color: #8a6410;
+}
+
+.li-badge--neutral {
+  background: rgba(0, 0, 0, 0.06);
+  color: rgba(0, 0, 0, 0.72);
+}
+
+.li-badge--muted {
+  background: transparent;
+  color: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+// ---------------------------------------------------------------- KPI
+.li-kpi {
+  font-family: $typography-font-family-display;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+// ---------------------------------------------------------------- UTILITIES
+.li-truncate-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.li-truncate-3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.li-divider {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+// Bottom action bar that stays within thumb reach on mobile (PRD F-03).
+.li-thumb-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 12px 16px calc(12px + var(--li-safe-bottom));
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  z-index: 1500;
+}
+
+// Guarantee the 44px minimum tap target everywhere.
+.q-btn {
+  min-height: $touch-target;
+}
+
+.q-field--outlined .q-field__control {
+  border-radius: 10px;
+}
+
+// Slide preview: always 16:9 and scaled to the container.
+.li-slide-preview {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.li-slide-preview--prayer {
+  background: $brand-black;
+  color: $brand-white;
+}
+
+.li-slide-preview--praise {
+  background: $brand-white;
+  color: $brand-black;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}

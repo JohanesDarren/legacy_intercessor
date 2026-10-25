@@ -1,0 +1,16 @@
+DROP TABLE IF EXISTS notifications;
+DROP TABLE IF EXISTS swap_requests;
+DROP TABLE IF EXISTS booth_assignments;
+DROP TABLE IF EXISTS booth_shifts;
+DROP TABLE IF EXISTS presentation_exports;
+DROP TABLE IF EXISTS presentations;
+DROP TABLE IF EXISTS ai_summaries;
+DROP TABLE IF EXISTS praise_reports;
+DROP TABLE IF EXISTS follow_ups;
+DROP TABLE IF EXISTS prayer_requests;
+DROP TABLE IF EXISTS audit_logs;
+DROP TABLE IF EXISTS services;
+DROP TABLE IF EXISTS categories;
+DROP TABLE IF EXISTS refresh_tokens;
+DROP TABLE IF EXISTS user_invites;
+DROP TABLE IF EXISTS users;

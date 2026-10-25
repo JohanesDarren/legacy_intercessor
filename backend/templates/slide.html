@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<title>{{.Title}}</title>
+</head>
+<body class="slide slide--{{.Template}}">
+  <div class="frame">
+    <header class="head">
+      <div class="brand">
+        <span class="brand__dot"></span>
+        <span class="brand__name">LEGACY</span>
+        <span class="brand__sub">SUKAWARNA</span>
+      </div>
+      <div class="head__note">GBI Aruna &middot; Sabtu 17:00 WIB</div>
+    </header>
+
+    <h1 class="title">{{.Title}}</h1>
+    {{if .Note}}<p class="subtitle">{{.Note}}</p>{{end}}
+    <div class="rule"></div>
+
+    <ul class="items items--{{len .Items}}">
+      {{range .Items}}
+      <li class="item{{if .IsUrgent}} item--urgent{{end}}">
+        <div class="item__body">
+          <div class="item__title">{{.Title}}</div>
+          <div class="item__text">{{.Body}}</div>
+        </div>
+        <div class="item__meta">
+          {{if .Name}}<span class="item__name">{{.Name}}</span>{{end}}
+          {{if .IsUrgent}}<span class="badge">URGENT</span>{{end}}
+        </div>
+      </li>
+      {{end}}
+    </ul>
+
+    <footer class="foot">
+      <span class="foot__left">Legacy Sukawarna</span>
+      <span class="foot__right">{{.PageLabel}}</span>
+    </footer>
+  </div>
+</body>
+</html>

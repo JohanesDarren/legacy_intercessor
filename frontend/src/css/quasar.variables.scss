@@ -1,0 +1,28 @@
+/**
+ * Brand design tokens for Legacy Intercessor.
+ * These mirror PRD Section 11.2. Components must never hardcode hex values.
+ */
+
+$brand-black: #000000;
+$brand-white: #ffffff;
+$brand-orange: #ff5500;
+$identity-gold: #e5ad38;
+$error-red: #c10015;
+
+$primary: $brand-black;
+$secondary: $identity-gold;
+$accent: $brand-orange;
+$dark: $brand-black;
+$positive: #1b7a3e;
+$negative: $error-red;
+$info: #1f6feb;
+$warning: $identity-gold;
+
+// Typography: display for headings, body for everything else (PRD 11.2).
+$typography-font-family: "Inter", "Plus Jakarta Sans", -apple-system,
+  BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+$typography-font-family-display: "Jost", "Futura", "Century Gothic",
+  "Trebuchet MS", sans-serif;
+
+// Minimum tap target from PRD F-10.
+$touch-target: 44px;
